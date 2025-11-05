@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Domestic Waste Management</title>
+</head>
+
+<body>
+    <header>
+        <div class="brand">
+            <div class="logo">PW</div>
+            <div>
+                <div class="brand-title">Plastic Waste</div>
+                <div class="brand-sub">Management</div>
+            </div>
+        </div>
+        <nav id="nav">
+            <a href="#" data-route="home" class="active">Home</a>
+            <a href="#" data-route="about">About</a>
+            <a href="#" data-route="solutions">Solutions</a>
+            <a href="#" data-route="data">Data</a>
+            <a href="#" data-route="contact">Contact</a>
+        </nav>
+        <div class="controls">
+            <button id="themeBtn"><i class="icon-sun"></i></button>
+            <button><i class="icon-search"></i></button>
+        </div>
+    </header>
+
+    <main>
+        <div id="home" class="page active">
+            <div class="hero">
+                <div class="card">
+                    <h1>Combatting Plastic Waste</h1>
+                    <p class="lead">A data-driven approach to understanding and mitigating the impact of plastic waste on our ecosystems.</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <h3 id="counterTotal">12,450</h3>
+                            <p>Tons of plastic collected</p>
+                        </div>
+                        <div class="stat">
+                            <h3 id="counterProjects">42</h3>
+                            <p>Active projects</p>
+                        </div>
+                        <div class="stat">
+                            <h3 id="counterPartners">18</h3>
+                            <p>Global partners</p>
+                        </div>
+                    </div>
+                    <div class="cta-row">
+                        <button class="primary" data-route-to="solutions">Our Solutions</button>
+                        <button class="outline" data-route-to="data">View Data</button>
+                    </div>
+                </div>
+                <div class="card float">
+                    <h2>Impact Calculator</h2>
+                    <p class="muted small">Estimate the environmental impact of plastic waste.</p>
+                    <form>
+                        <div class="form-row">
+                            <label for="plasticType">Plastic Type</label>
+                            <select id="plasticType">
+                                <option value="1.2">PET (e.g. bottles)</option>
+                                <option value="0.9">HDPE (e.g. jugs)</option>
+                                <option value="1.5">PVC (e.g. pipes)</option>
+                                <option value="0.8">LDPE (e.g. bags)</option>
+                            </select>
+                        </div>
+                        <div class="form-row">
+                            <label for="weight">Weight (kg)</label>
+                            <input type="number" id="weight" value="10">
+                        </div>
+                        <button type="button" id="calcBtn" class="primary">Calculate</button>
+                    </form>
+                    <div id="impactResult" class="strong" style="margin-top:12px;color:var(--success)"></div>
+                </div>
+            </div>
+            <h2>Key Metrics</h2>
+            <div class="quick-tiles">
+                <div class="tile">
+                    <h4>Recycling Rate</h4>
+                    <p class="strong">34%</p>
+                    <div class="bar"><i data-progress="34" style="width:34%"></i></div>
+                </div>
+                <div class="tile">
+                    <h4>Landfill Diversion</h4>
+                    <p class="strong">68%</p>
+                    <div class="bar"><i data-progress="68" style="width:68%"></i></div>
+                </div>
+                <div class="tile">
+                    <h4>Ocean Plastic Reduction</h4>
+                    <p class="strong">22%</p>
+                    <div class="bar"><i data-progress="22" style="width:22%"></i></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="about" class="page">
+            <div class="card">
+                <h2>About Us</h2>
+                <p>We are a dedicated team of environmental scientists, data analysts, and activists committed to solving the global plastic waste crisis. Our mission is to leverage technology and data to create a cleaner, more sustainable future for all.</p>
+                <p>Founded in 2023, PlasticAwareness.org has grown into a global force for change, with projects spanning from local community cleanups to international policy advocacy.</p>
+            </div>
+        </div>
+
+        <div id="solutions" class="page">
+            <div class="card">
+                <h2>Our Solutions</h2>
+                <p>We tackle plastic waste through a multi-faceted approach:</p>
+                <div class="grid">
+                    <div class="tile">
+                        <h4>Advanced Recycling</h4>
+                        <p class="small muted">Developing and promoting new technologies to recycle previously unrecyclable plastics.</p>
+                    </div>
+                    <div class="tile">
+                        <h4>Circular Economy</h4>
+                        <p class="small muted">Working with businesses to design products for longevity, reuse, and recyclability.</p>
+                    </div>
+                    <div class="tile">
+                        <h4>Policy & Advocacy</h4>
+                        <p class="small muted">Pushing for stronger regulations on plastic production and waste management.</p>
+                    </div>
+                    <div class="tile">
+                        <h4>Public Awareness</h4>
+                        <p class="small muted">Educating communities about the impact of plastic and how they can help.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="data" class="page">
+            <div class="data-row">
+                <div class="card chart-card">
+                    <h2>Regional Collection Data</h2>
+                    <canvas id="chart1" width="400" height="260"></canvas>
+                </div>
+                <div class="card small-card">
+                    <h2>Collection by Region</h2>
+                    <table class="data-table">
+                        <thead>
+                            <tr><th>Region</th><th>Kilograms</th><th>Target</th></tr>
+                        </thead>
+                        <tbody id="tableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="contact" class="page">
+            <div class="card">
+                <h2>Contact Us</h2>
+                <p>Have questions or want to get involved? Reach out to us.</p>
+                <form id="contactForm">
+                    <div class="form-row">
+                        <input type="text" id="name" placeholder="Your Name">
+                        <input type="email" id="email" placeholder="Your Email">
+                    </div>
+                    <select id="inquiry">
+                        <option>General Inquiry</option>
+                        <option>Partnership</option>
+                        <option>Media</option>
+                    </select>
+                    <textarea id="message" placeholder="Your Message" rows="5"></textarea>
+                    <button type="button" id="sendBtn" class="primary">Send Message</button>
+                    <p id="formStatus" class="small muted"></p>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 PlasticAwareness.org</p>
+        <div class="socials">
+            <a href="#">Twitter</a>
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
